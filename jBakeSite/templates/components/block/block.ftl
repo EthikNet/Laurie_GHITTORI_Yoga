@@ -7,30 +7,40 @@
 </#function>
 
 
-<#macro build content>
-	<#if (content.includeBlocks)?? && (content.includeBlocks.category)??>
-		<@buildWithCategory content.includeBlocks.category />
+<#macro build theContent>
+	<#if (theContent.includeBlocks)?? && (theContent.includeBlocks.category)??>
+		<@buildWithCategory theContent.includeBlocks.category "order"/>
 	</#if>
 </#macro>
+
+<#function getBlocks theContent categoryFilter="" orderBy="">
+	<#if !(categoryFilter?has_content) && (theContent.includeBlocks)??>
+		<#local categoryFilter = theContent.includeBlocks.category>
+	</#if>
+	<#if !(orderBy?has_content) && (theContent.includeBlocks)?? && (theContent.includeBlocks.order)??>
+		<#local orderBy = theContent.includeBlocks.order>
+	<#else>
+		<#local orderBy = "order">
+	</#if>
+	
+	<#local blocks = org_openCiLife_blocks?filter(b -> b.status=="published")?filter(b-> sequenceHelper.seq_containsOne(b.category!"__empty_categ__", categoryFilter))?sort_by(orderBy)>
+	<#if (langHelper)??>
+		<#local blocks = blocks?filter(ct -> langHelper.isCorectLang(ct, langHelper.getLang(content)))>
+	</#if>
+	<#if logHelper??>
+		<@logHelper.debug "Blocks : Liste of blocks for " + categoryFilter + " (published, filtered by lang if resquired) with " + blocks?size + " blocks"/>
+	</#if>
+	<#return blocks>
+</#function>
 
 <#-- build a content with blocks
     @param categoryFilter category to filter to get blocks. "config.site_homepage_category" for HomePage.
 -->
-<#macro buildWithCategory categoryFilter>
-
-	<#local blocks = org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order")>
-	<#if (langHelper)??>
-		<#local blocks = blocks?filter(ct -> langHelper.isCorectLang(ct, langHelper.getLang(content)))>
-	</#if>
-	
-	<#if logHelper??>
-		<@logHelper.debug "Blocks : search if " + categoryFilter + " exists in " + blocks?size + " blocks"/>
-	</#if>
-	
-	<#list blocks?sort_by("order") as block>
+<#macro buildWithCategory categoryFilter orderBy="order">
+	<#list getBlocks(content, categoryFilter, order) as block>
 		<#local blockCategory = block.category!"__empty_categ__">
 		<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
-			<#local uselessTempVar = commonInc.propagateContentChain(block) />
+	 		<#local uselessTempVar = commonInc.propagateContentChain(block) />
 			<#local subTemplateName = "defaultBlockSubTemplate">
 			<#if (block.subTemplate??)>
 				<#local subTemplateName=block.subTemplate>
@@ -40,11 +50,21 @@
 			<@subTemplateInterpretation/>
 		</#if>
   	</#list>
+  	${common.clearGeneratedAnchorId()}
 </#macro>
 
 <#macro generateAnchor block>
+	<#local theAnchorId = "">
 	<#if (block.anchorId)??>
-		id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
+		<#local theAnchorId = block.anchorId>
+	<#else>
+		<#local theGeneratedAnchorId = common.getGeneratedAnchorId(block.title)>
+		<#if theGeneratedAnchorId?has_content>
+			<#local theAnchorId = theGeneratedAnchorId>
+		</#if>
+	</#if>
+	<#if theAnchorId?has_content>
+		id="<#escape x as x?xml>${theAnchorId}</#escape>"<#rt>
 	</#if>
 </#macro>
 

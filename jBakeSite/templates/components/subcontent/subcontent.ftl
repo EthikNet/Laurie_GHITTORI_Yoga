@@ -60,7 +60,7 @@ param : content : content to search for include content
 		</#if>
 		
 		<#local specificClass = (content.includeContent.specificClass)!"">
-		<div <@generateAnchor content/><#if specificClass??> class="${specificClass}"</#if>>
+		<div <@generateAnchor content/><#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
 		<#if (subContents?size > 0)>
 			<#if (content.includeContent.title)??>
 				<div class="title">${content.includeContent.title}</div>

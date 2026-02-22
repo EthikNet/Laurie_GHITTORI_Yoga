@@ -53,7 +53,7 @@ param : message : the message to display (a String)
 <#function stackDebugMessage message>
 	<#local strMessage = message>
 	<#if !strMessage?is_string && !(common)??>
-		<#local strMessage = "LogHelper : !!! message is NOT a string and common module is NOT avaible to transforme, the message is lost !!!">
+		<#local strMessage = "LogHelper : !!! message is NOT a string and common module is NOT aviable to transform : the message is lost !!!">
 	<#elseif common??>
 		<#local strMessage = common.toString(message)>
 	</#if>

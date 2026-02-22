@@ -78,27 +78,15 @@ return : text with URL transformed
 	<#return isSvg>
 </#function>
 
-<#macro addImageIcon image cssClass="" alternativeText="" wrapTo="div class=\""+cssClass+"_wraper\"">
+<#macro addImageIcon image cssClass="" alternativeText="">
 	<#if (image)??>
 		<#if common.isSvg(image)>
-			<@wrap wrapTo>
-				<span <#if cssClass?has_content>class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>>
-					${image}
-				</span>
-			</@wrap>
+			<span <#if cssClass?has_content>class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>>
+				${image}
+			</span>
 		<#else>
-			<@wrap wrapTo>
-				<img src="${common.buildRootPathAwareURL(image)}"<#if cssClass?has_content> class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>/>
-			</@wrap>
+			<img src="${common.buildRootPathAwareURL(image)}"<#if cssClass?has_content> class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>/>
 		</#if>
-	</#if>
-</#macro>
-
-<#macro wrap wrapTo="">
-	<#if (wrapTo)?? && wrapTo?has_content>
-		<${wrapTo}><#nested></${wrapTo!keep_before(" ")}>
-	<#else>
-		<#nested>
 	</#if>
 </#macro>
  
@@ -153,4 +141,37 @@ param : theObject : object to transform in String
     </#list>
     <#assign oldRdnValues = oldRdnValues + [returnVal]>
     <#return returnVal/>	
+</#function>
+
+<#assign allGeneratedAnchorIdByTitle = []>
+
+<#function generatedAnchorId blockTitle>
+	<#if logHelper??>
+ 		${logHelper.stackDebugMessage("generatedAnchorId : generating and storing an id for : " + blockTitle)}
+ 	</#if>
+	<#local generatedAnchorId = common.randomNumber()>
+	<#assign allGeneratedAnchorIdByTitle = allGeneratedAnchorIdByTitle + [{"title":blockTitle, "anchorId":generatedAnchorId}]>
+	<#return generatedAnchorId>
+</#function>
+
+<#function getGeneratedAnchorId blockTitle>
+	<#if logHelper??>
+ 		${logHelper.stackDebugMessage("getGeneratedAnchorId : searching for the eventually generated ID for : '${blockTitle}' in ${allGeneratedAnchorIdByTitle?size} generatedIds")}
+ 	</#if>
+	<#local anchorId = "">
+	<#list allGeneratedAnchorIdByTitle as  generatedAnchorIdByTitle>
+		<#if generatedAnchorIdByTitle.title == blockTitle>
+			<#local anchorId = generatedAnchorIdByTitle.anchorId>
+			<#break>
+		</#if>
+	</#list>
+	<#return anchorId>
+</#function>
+
+<#function clearGeneratedAnchorId>
+	<#if logHelper??>
+ 		${logHelper.stackDebugMessage("clearGeneratedAnchorId : Clearing generated AnchorsIds")}
+ 	</#if>
+	<#assign allGeneratedAnchorIdByTitle = []>
+	<#return "">
 </#function>
