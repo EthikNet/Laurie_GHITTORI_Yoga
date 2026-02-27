@@ -14,6 +14,14 @@
     <meta name="author" content="${propertiesHelper.retrieveAndDisplayConfigText("site.header.author")}">
     <meta name="keywords" content="${ecoWeb.retrieveMetaKeyWord(content)}">
     <meta name="generator" content="JBake">
+    <#if content.type == "org_openCiLife_block" || ((content.status)?? && content.status == "draft")>
+    	<meta name="robots" content="noindex, nofollow" />
+    <#else>
+    	<#assign robotsVal = propertiesHelper.retrieveAndDisplayConfigText("site.header.robots")>
+    	<#if robotsVal?has_content>
+    		<meta name="robots" content="${robotsVal}" />
+    	</#if>
+    </#if>
     
     <#if ressourcesHelper??>
     	<@ressourcesHelper.buildExternalInjection config.site_script_header />

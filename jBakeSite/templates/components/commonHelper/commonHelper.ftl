@@ -78,15 +78,27 @@ return : text with URL transformed
 	<#return isSvg>
 </#function>
 
-<#macro addImageIcon image cssClass="" alternativeText="">
+<#macro addImageIcon image cssClass="" alternativeText="" wrapTo="div class=\""+cssClass+"_wraper\"">
 	<#if (image)??>
 		<#if common.isSvg(image)>
-			<span <#if cssClass?has_content>class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>>
-				${image}
-			</span>
+			<@wrap wrapTo>
+				<span <#if cssClass?has_content>class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>>
+					${image}
+				</span>
+			</@wrap>
 		<#else>
-			<img src="${common.buildRootPathAwareURL(image)}"<#if cssClass?has_content> class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>/>
+			<@wrap wrapTo>
+				<img src="${common.buildRootPathAwareURL(image)}"<#if cssClass?has_content> class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>/>
+			</@wrap>
 		</#if>
+	</#if>
+</#macro>
+
+<#macro wrap wrapTo="">
+	<#if (wrapTo)?? && wrapTo?has_content>
+		<${wrapTo}><#nested></${wrapTo!keep_before(" ")}>
+	<#else>
+		<#nested>
 	</#if>
 </#macro>
  

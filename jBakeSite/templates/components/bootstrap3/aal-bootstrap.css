@@ -7236,7 +7236,7 @@ button.close {
 
 .primary b,
 .primary strong {
-	color:${webleger.site.style.primary.highlight.color}
+	color:${webleger.site.style.primary.impact.color}
 }
 
 .primary a {
@@ -7413,7 +7413,7 @@ button.close {
 
 .secondary b,
 .secondary strong {
-	color:${webleger.site.style.secondary.highlight.color}
+	color:${webleger.site.style.primary.impact.color}
 }
 
 .secondary a {

@@ -8,6 +8,7 @@
     <stringAttribute key="M2_PROFILES" value=""/>
     <listAttribute key="M2_PROPERTIES">
         <listEntry value="webleger.build.host=https://webleger.github.io/webleger/index.html"/>
+        <listEntry value="webleger.site.header.robots=noindex, nofollow"/>
     </listAttribute>
     <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
     <booleanAttribute key="M2_SKIP_TESTS" value="false"/>

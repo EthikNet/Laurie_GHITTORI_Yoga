@@ -59,16 +59,20 @@
 </#macro>
 
 <#function isEnableLegal>
-	<#local isLegalEnable = (propertiesHelper.retrieveAndDisplayConfigText("site.legal.enable"))?? 
-			&& propertiesHelper.retrieveAndDisplayConfigText("site.legal.enable")=="true">
+	<#local isLegalEnable = ((propertiesHelper.retrieveAndDisplayConfigText("site.legal.enable"))?? 
+			&& (propertiesHelper.retrieveAndDisplayConfigText("site.legal.enable")=="true"))>
 	<#if logHelper??>
-		${logHelper.stackDebugMessage("legal.isEnableLegal : global enable value : " + isLegalEnable?string("true", "no"))}
+		${logHelper.stackDebugMessage("legal.isEnableLegal : global enable value : " + isLegalEnable?string("true", "no") + ", read value : " + propertiesHelper.retrieveAndDisplayConfigText("site.legal.enable"))}
 	</#if>
 	<#return isLegalEnable/>
 </#function>
 
 <#function isLegalContent theContent>
-	<#return (theContent.legalPage)?? && theContent.legalPage=="true"/>
+	<#local isLegalContent = (theContent.legalPage)?? && theContent.legalPage=="true">
+	<#if logHelper??>
+		${logHelper.stackDebugMessage("legal.isLegalContent : is page contain header for legale page : " + isLegalContent?string("true", "no"))}
+	</#if>
+	<#return isLegalContent/>
 </#function>
 
 <#macro displayLegaleLinks theContent classes="legal_menu">
