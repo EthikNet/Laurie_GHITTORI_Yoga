@@ -1,0 +1,65 @@
+.badge {
+	display: inline-block;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: 700;
+	color: ${webleger.site.style.primary.background.color};
+	line-height: 1;
+	vertical-align: baseline;
+	white-space: nowrap;
+	text-align: center;
+	background-color: #999;
+	border-radius: 10px
+}
+
+.badge:empty {
+	display: none
+}
+
+.btn .badge {
+	position: relative;
+	top: -1px
+}
+
+.btn-xs .badge {
+	top: 0;
+	padding: 1px 5px
+}
+
+a.badge:hover,
+a.badge:focus {
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer
+}
+
+a.list-group-item.active>.badge,
+.nav-pills>.active>a>.badge {
+	color: ${webleger.site.style.primary.color};
+	background-color: ${webleger.site.style.primary.background.color}
+}
+
+.nav-pills>li>a>.badge {
+	margin-left: 3px
+}
+
+
+.list-group-item>.badge {
+	float: right
+}
+
+.list-group-item>.badge+.badge {
+	margin-right: 5px
+}
+
+.btn-primary .badge {
+	color: ${webleger.site.style.color};
+	background-color: ${webleger.site.style.background.color}
+}
+
+
+.btn-secondary .badge {
+	color: ${webleger.site.style.color};
+	background-color: ${webleger.site.style.background.color}
+}
