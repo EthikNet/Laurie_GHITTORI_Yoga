@@ -5,6 +5,7 @@
 	text-decoration: underline;
 	text-decoration-style: double;
 	position:relative;
+	display:inline;
 }
 
 .glossay_term:hover .glossay_def{

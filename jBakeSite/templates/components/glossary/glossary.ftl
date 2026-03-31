@@ -60,9 +60,9 @@
 						</#if>
 					</#if>
 					<#if logHelper??>
-				 		${logHelper.stackDebugMessage("glossary.hightlightGlossaryWords : term to search for : " + enhancedTerm + " (original : "+ element.term) + ")"}
+				 		${logHelper.stackDebugMessage("glossary.hightlightGlossaryWords : term to search for : " + enhancedTerm + " (original : "+ element.term + ")")}
 				 	</#if>
-					<#assign newContent = newContent?replace("("+enhancedTerm+")", "<span class=\"glossay_term"+specificClassTerm+"\">$1<span class=\"glossay_def"+specificClassDef+"\">"+element.def+"</span></span>", "r")>
+					<#assign newContent = newContent?replace("("+enhancedTerm+")", "<div class=\"glossay_term"+specificClassTerm+"\">$1<div class=\"glossay_def"+specificClassDef+"\">"+element.def+"</div></div>", "r")>
 				</#list>
 						
 				<#assign alteredContent = alteredContent + {"body": newContent}>
