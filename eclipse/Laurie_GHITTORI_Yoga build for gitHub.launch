@@ -7,7 +7,7 @@
     <booleanAttribute key="M2_OFFLINE" value="false"/>
     <stringAttribute key="M2_PROFILES" value=""/>
     <listAttribute key="M2_PROPERTIES">
-        <listEntry value="webleger.build.host=webleger.github.io/webleger/index.html"/>
+        <listEntry value="webleger.build.host=webleger.github.io/Laurie_GHITTORI_Yoga/index.html"/>
         <listEntry value="webleger.site.header.robots=noindex, nofollow"/>
         <listEntry value="webleger.build.host.prefered.protocol=https"/>
     </listAttribute>
@@ -25,5 +25,5 @@
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/openJdK 1.8/"/>
-    <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:/WebLeger}"/>
+    <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:/Laurie_GHITTORI_Yoga}"/>
 </launchConfiguration>
