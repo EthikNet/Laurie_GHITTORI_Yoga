@@ -1,14 +1,12 @@
-title=Bienvenue
-date=2019-01-27
+title=Bienvenue dans mon univers
+date=2026-04-01
 type=org_openCiLife_block
+subTemplate=imageLeftSubTemplate
 category=homepage
 tags=
 status=published
-specificClass=mainBlock primary
-contentImage=images/contact.svg
-anchorId=bienvenu
-order=4
+specificClass=mainBlock bievenue
+contentImage=images/Laurie_visage_small.jpg
+order=110
 ~~~~~~
-**Bienvenue**
-
-Site en *construction*
+Je suis **Laurie Ghittori**, et je vous accompagne à Coussac-Bonneval. Ici, entre les paysages apaisants de notre campagne et le rythme paisible de la nature, je vous invite à découvrir le Hatha Yoga ainsi que le Yoga du Cachemire.

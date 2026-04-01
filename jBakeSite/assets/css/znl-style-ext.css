@@ -31,6 +31,29 @@
 	height:auto;
 }
 
+.bievenue .blockContent, .desc_ent .card_content {
+	color:${webleger.site.style.muted.foreeground};
+}
+.bievenue .blockIcon_wraper img {
+	border-radius:100%;
+	height:auto;
+}
+
+.desc_ent .card_image {
+	float:left;
+	padding: 8px;
+	height: 40px;
+	width: 40px;
+	margin-top: 24px;
+	margin-right: 25px;
+	border-radius:100%;
+	background-color:#f3eee6;
+	color:${webleger.site.style.primary.background.color};
+}
+
+.glossay_term {
+	color:${webleger.site.style.primary.background.color};
+}
 #footer_blocks .block {
 	text-align:left;
 }
@@ -49,5 +72,8 @@
 	}
 	.preHeader .blockContent {
 		margin-left: 25px;
+	}
+	.bievenue .blockIcon_wraper img {
+		width:80%;
 	}
 }
