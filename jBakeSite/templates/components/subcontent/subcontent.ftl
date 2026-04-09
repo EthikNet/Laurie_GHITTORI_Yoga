@@ -164,7 +164,7 @@ param : content : content to search for include content
 					</#if>
 				</#if>
 				
-				<#if (content.includeContent.hooks)??>
+				<#if (altSubContent.includeContent.hooks)??>
 					<#if logHelper??>
 						${logHelper.stackDebugMessage("SubContent.build : Custom Hooks detected for : " + altSubContent.uri + " : " + common.toString(content.includeContent.hooks))}
 					</#if>
@@ -172,7 +172,7 @@ param : content : content to search for include content
 						<#if logHelper??>
 							${logHelper.stackDebugMessage("SubContent.build : Registering Custom Hooks")}
 						</#if>
-						${hookHelper.registerHookFromJson(content.includeContent.hooks)}
+						${hookHelper.registerHookFromJson(altSubContent.includeContent.hooks)}
 					</#if>
 				</#if>
 				

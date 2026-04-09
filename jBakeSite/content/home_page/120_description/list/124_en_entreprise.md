@@ -8,3 +8,6 @@ status=published
 order=124
 ~~~~~~
 Pratiquer à la campagne, c'est profiter d'un cadre authentique pour débrancher du quotidien. Que vous habitiez le village ou les environs, je vous accueille avec bienveillance, quel que soit votre niveau.
+
+- Prévenir les troubles musculosquelettiques (maux de dos, tensions cervicales).
+- Réduire le stress et améliorer la concentration des équipes.

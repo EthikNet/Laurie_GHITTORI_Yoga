@@ -23,17 +23,29 @@
 
 
 <#macro build theContent>
-	<#if (theContent.includeBlocks)?? && (theContent.includeBlocks.category)??>
-		<@buildWithCategory theContent.includeBlocks.category "order"/>
+	<#if (theContent.includeBlocks)??>
+		<#if (theContent.includeBlocks.category)??>
+			<@buildWithCategory theContent theContent.includeBlocks.category "order" theContent.includeBlocks/>
+		<#elseif (theContent.includeBlocks.data)??>
+			<#list theContent.includeBlocks.data as blokcConfig>
+				<@buildWithCategory theContent blokcConfig.category "order" blokcConfig/>
+			</#list>
+		</#if>
 	</#if>
 </#macro>
 
-<#function getBlocks theContent categoryFilter="" orderBy="">
-	<#if !(categoryFilter?has_content) && (theContent.includeBlocks)??>
-		<#local categoryFilter = theContent.includeBlocks.category>
+<#function getBlocks theContent categoryFilter="" orderBy="", blockConfig={}>
+	<#if !(blockConfig?has_content) && (theContent.includeBlocks)??>
+		<#local blockConfig = theContent.includeBlocks>
+	<#else>
+		<#local blockConfig = blockConfig>
 	</#if>
-	<#if !(orderBy?has_content) && (theContent.includeBlocks)?? && (theContent.includeBlocks.order)??>
-		<#local orderBy = theContent.includeBlocks.order>
+	
+	<#if !(categoryFilter?has_content) && (blockConfig)??>
+		<#local categoryFilter = blockConfig.category>
+	</#if>
+	<#if !(orderBy?has_content) && (blockConfig)?? && (blockConfig.order)??>
+		<#local orderBy = blockConfig.order>
 	<#else>
 		<#local orderBy = "order">
 	</#if>
@@ -51,21 +63,63 @@
 <#-- build a content with blocks
     @param categoryFilter category to filter to get blocks. "config.site_homepage_category" for HomePage.
 -->
-<#macro buildWithCategory categoryFilter orderBy="order">
-	<#list getBlocks(content, categoryFilter, order) as block>
-		<#local blockCategory = block.category!"__empty_categ__">
-		<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
-	 		<#local alteredBlock = commonInc.propagateContentChain(block) />
-			<#local subTemplateName = "defaultBlockSubTemplate">
-			<#if (block.subTemplate??)>
-				<#local subTemplateName=block.subTemplate>
+<#macro buildWithCategory theContent categoryFilter orderBy="order", blockConfig={}>
+	<@generateBlockWrap theContent, blockConfig>
+		<#list getBlocks(theContent, categoryFilter, order, blockConfig) as block>
+			<#local blockCategory = blockConfig.category!"__empty_categ__">
+			<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
+		 		<#local alteredBlock = commonInc.propagateContentChain(block) />
+				<#local subTemplateName = "defaultBlockSubTemplate">
+				<#if (block.subTemplate??)>
+					<#local subTemplateName=block.subTemplate>
+				</#if>
+				
+				<#local subTemplateInterpretation = "<@${subTemplateName} alteredBlock />"?interpret>
+				<@subTemplateInterpretation/>
 			</#if>
-			
-			<#local subTemplateInterpretation = "<@${subTemplateName} alteredBlock />"?interpret>
-			<@subTemplateInterpretation/>
-		</#if>
-  	</#list>
+	  	</#list>
+  	</@generateBlockWrap>
   	${common.clearGeneratedAnchorId()}
+</#macro>
+
+<#macro generateBlockWrap theContent blockConfig>
+	<#if !(blockConfig)?has_content && (theContent.includeBlocks)??>
+		<#local blockConfig = theContent.includeBlocks>
+	</#if>
+	
+	<#if logHelper??>
+		<#local wrapParams = "NONE">
+		<#if (blockConfig)?? && (blockConfig.wrap)??>
+			<#local wrapParams =  common.toString(blockConfig.wrap)>
+		</#if>
+		${logHelper.stackDebugMessage("block.generateBlockWrap : checking for block wraping in params : " + wrapParams)}
+	</#if>
+	<#local wrapEnable = false>
+	<#local specificClass = "block_wraping">
+	<#local wrapTag = "div">
+	<#if (blockConfig)?? && (blockConfig.wrap)?? && (blockConfig.wrap.enable)?? && (blockConfig.wrap.enable == "true")>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("block.generateBlockWrap : wraping is enabled")}
+		</#if>
+		<#local wrapEnable = true>
+	</#if>
+	
+	<#if (blockConfig)?? && (blockConfig.wrap)?? && (blockConfig.wrap.specificClass)?? && blockConfig.wrap.specificClass?has_content>
+		<#local specificClass = specificClass + " " + blockConfig.wrap.specificClass>
+	</#if>
+	<#if (blockConfig)?? && (blockConfig.wrap)?? && (blockConfig.wrap.tag)?? && blockConfig.wrap.tag?has_content>
+		<#local wrapTag = blockConfig.wrap.tag>
+	</#if>
+	
+	<#if wrapEnable>
+		<${wrapTag} class="${specificClass}">
+	</#if>
+	<#nested>
+	
+	<#if wrapEnable>
+		</${wrapTag}>
+	</#if>
+	
 </#macro>
 
 <#macro generateAnchor block>
@@ -213,5 +267,15 @@
 <#macro backGroundImageContainSubTemplate block>
 	<#local customCssStyle = "background-image: url('"+common.buildRootPathAwareURL(block.contentImage)+"'); background-repeat: no-repeat; background-size: contain;">
 	<@noImageSubTemplate block customCssStyle/>
+</#macro>
+
+<#macro imageHeroSubTemplate block>
+	<section class="imageHeroSection">
+	<div class="imageHeroContainer">
+		<img src="${common.buildRootPathAwareURL(block.contentImage)}"/>
+		<div class="imageHeroMask"></div>
+	</div>
+	<@noImageSubTemplate block "position:relative"/>
+	</section>
 </#macro>
 

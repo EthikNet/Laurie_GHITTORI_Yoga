@@ -7,7 +7,7 @@
      <div class="container">
      	<#if block??>
 		     <div id="footer_blocks" class="blocks ${webleger.site.footer.class}">
-		     	<@block.buildWithCategory config.site_footer_category/>
+		     	<@block.buildWithCategory content config.site_footer_category/>
 		     </div>
 	     </#if>
 	     <p role="note" class="discret credit">&copy; 2025 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake ${jbake_maven_plugin.version}</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> and <a href="https://www.ethiknet.fr/webleger/">WebLeger</a> | Version ${version} at ${published_date?datetime}</p>

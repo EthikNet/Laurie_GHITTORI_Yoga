@@ -4,16 +4,22 @@
 	justify-content: space-around;
 }
 
+.sticker_right {
+	justify-content: right;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
 .sticker_centered {
 	justify-content: center;
 }
 
-.sticker_centered.noText {
+.sticker_centered.noText, .sticker_right.noText {
 	flex-direction: row;
 	gap: 4px;
 }
 
-.sticker_centered.noText .sticker {
+.sticker_centered.noText .sticker, .sticker_right.noText .sticker {
 	flex-direction: row;
 	display: flex;
     height: 40px;
@@ -23,17 +29,16 @@
 	align-items: center;
 }
 
-.sticker_centered a{
+.sticker_centered a, .sticker_right a{
 	margin-top:10px;
 }
 
 @media screen and (min-width: 640px) {
-	.sticker_centered {
+	.sticker_centered, .sticker_right {
 		flex-direction: row;
 		gap: 12px;
 	}
-	.sticker_centered.noText {
-		
+	.sticker_centered.noText, .sticker_right.noText {
 		gap: 12px;
 	}
 }

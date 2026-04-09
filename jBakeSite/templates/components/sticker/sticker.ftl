@@ -16,12 +16,8 @@
 				<@logHelper.debug "Sticker : Nbsticker :  " + content.stickers.data?size/>
 			</#if>
 			<#local stickerListDisposition = content.stickers.disposition!"center">
-			<#local stickerListSpecificClass = "sticker_list">
-			<#switch stickerListDisposition>
-				<#case "center">
-					<#local stickerListSpecificClass = stickerListSpecificClass + " sticker_centered">
-				<#break>
-			</#switch>
+			<#local stickerListSpecificClass = "sticker_list sticker_" + stickerListDisposition>
+			
 			<#if (content.stickers.specificClass)??>
 				<#local stickerListSpecificClass = stickerListSpecificClass + " " + content.stickers.specificClass>
 			</#if>

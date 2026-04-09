@@ -69,7 +69,7 @@
 	    	<div id="preHeader" class="container preHeader ${webleger.site.preheader.class}">
 	    		<#if block??>
 		    		<div id="preHeader_blocks" class="blocks">
-		    			<@block.buildWithCategory config.site_header_category/>
+		    			<@block.buildWithCategory content config.site_header_category/>
 					</div>
 				</#if>
 	    	</div>

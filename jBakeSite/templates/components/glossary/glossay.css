@@ -32,6 +32,10 @@
 	width: 260px;
 }
 
+.glossay_term svg {
+	height:12px;
+}
+
 
 @media screen and (min-width: 640px) {
 	.glossay_term:hover .glossay_def{

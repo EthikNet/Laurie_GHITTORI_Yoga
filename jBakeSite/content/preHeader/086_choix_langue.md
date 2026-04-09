@@ -6,6 +6,7 @@ tags=
 status=published
 languageSwitcher=true
 lang=fr-FR, en-EN
+enableGlossary=false
 order=086
 ~~~~~~
 	

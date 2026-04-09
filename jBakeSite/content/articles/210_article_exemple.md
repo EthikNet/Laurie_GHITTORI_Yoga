@@ -1,11 +1,11 @@
 title=Article d'exemple
-date=2020-02-10
+date=2026-04-08
 type=org_openCiLife_post
 category=main
 tags=exmple, un autre tag
 status=published
 exerpt=un petit résumé de l'article d'exemple
-contentImage=images/contact.svg
+contentImage=images/common/logo_left.png
 order=210
 ~~~~~~
 ##un Titre

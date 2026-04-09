@@ -4,6 +4,7 @@ type=org_openCiLife_post
 category=cgv
 status=draft
 exerpt=Conditions générales de vente (prestations de service) entre professionnels
+enableGlossary=false
 order=9990
 ~~~~~~
 ## Article 1 - Champ d’application

@@ -6,6 +6,20 @@
 .breadcrumb li a {
     border-radius:15px;
 }
+.breadcrumb>li {
+	border-left:none;
+}
+
+.content_tags li{
+	border-left:none;
+    margin:0px;
+	display: inline;
+	border: 1px solid white;
+	padding: 2px;
+	margin-left: 0.5rem;
+	border-radius: 5px;
+}
+
 .impact_img svg {
 	background-color:${webleger.site.style.color};
 	color:${webleger.site.style.background.color};
@@ -31,15 +45,79 @@
 	height:auto;
 }
 
-.bievenue .blockContent, .desc_ent .card_content {
-	color:${webleger.site.style.muted.foreeground};
+.card content_type_link .card_image_wraper {
+	text-align:center;
 }
-.bievenue .blockIcon_wraper img {
+
+blockquote, hr  {
+	border-color:${webleger.site.style.primary.background.color};
+}
+
+ul {
+	padding-left:0.25rem;
+}
+ul > li {
+	line-height: 1.625;
+	list-style: none;
+	font-size: 1.5rem;
+	padding-left: 1rem;
+	margin: 1rem 0;
+	border-left: 1px solid ${webleger.site.style.primary.background.color.medium};
+}
+
+em {
+	color:${webleger.site.style.primary.background.color};
+}
+
+.noBorderCard .card {
+	box-shadow:none;
+}
+
+.defaultCard .card {
+	text-align: center;
+	box-shadow: none;
+	padding: 2rem;
+	border: 1px solid ${webleger.site.style.primary.background.color.medium};
+}
+
+.title {
+	width:100%;
+	color:${webleger.site.style.background.color};
+}
+.title .blockContent{
+	text-align: center;
+}
+.title .blockContent p{
+	opacity: 80%;
+}
+
+.title em {
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: .08em;
+	margin: 10px 0;
+	color:${webleger.site.style.primary.background.color};
+}
+.title h1 {
+	text-align: center;
+	letter-spacing: .025em;
+	font-weight: 750;
+	margin: 25px 0;
+	color:${webleger.site.style.primary.color};
+}
+.title h1 strong {
+	display:block;
+	color:${webleger.site.style.primary.background.color};
+}
+
+.bievenue .blockIcon_wraper img, .mon_parcours .blockIcon_wraper img {
 	border-radius:100%;
 	height:auto;
 }
 
-.desc_ent .card_image {
+.imgBeforeTitle .card_image {
 	float:left;
 	padding: 8px;
 	height: 40px;
@@ -50,6 +128,152 @@
 	background-color:#f3eee6;
 	color:${webleger.site.style.primary.background.color};
 }
+
+.activites .blockContent > p:first-child:has(em), .planning  .blockContent > p:first-child:has(em), .tarifs  .blockContent > p:first-child:has(em), 
+.parlons-en .blockContent > p:first-child:has(em), .derniers_articles .blockContent > p:first-child:has(em), .mon_parcours .blockContent > p:first-child:has(em) {
+	display:block;
+	letter-spacing: .5em;
+	text-transform: uppercase;
+	font-size: 1rem;
+	line-height: 1rem;
+	text-align: center;
+	font-weight: 600;
+	margin-bottom: .75rem;
+	margin-top: 5rem;
+}
+
+.activites .blockContent h2, .planning .blockContent h2, .tarifs .blockContent h2, .parlons-en .blockContent h2, .derniers_articles .blockContent h2, 
+.mon_parcours .blockContent h2 {
+	font-size: 3.5rem;
+	line-height: 3.5rem;
+	text-align: center;
+	font-weight: 700;
+	margin-bottom: 4rem;
+}
+
+.activites .avialable .sticker, .soon .sticker {
+	letter-spacing: .1em;
+	font-size: 1rem;
+	text-transform: uppercase;
+	padding: 0.25rem 0.5rem;
+	border-radius: .25rem;
+}
+
+.activites .avialable .sticker {
+	background-color: ${webleger.site.style.primary.background.color.light};
+	color:${webleger.site.style.primary.background.color};
+}
+
+.activites .soon .sticker {
+	background-color: ${webleger.site.style.primary.discret.background.color};
+}
+
+.activites .activitySoon strong:first-child {
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: .15em;
+	font-size: 1.25rem;
+	margin-bottom: -1.5rem;
+	color:${webleger.site.style.color};
+}
+
+.activites .mainActivity {
+	position: relative;
+	padding: 2.5rem;
+	border-radius:0.5rem;
+	margin-bottom: 2rem;
+	background-color:white;
+	border: 1px solid ${webleger.site.style.hr.color};
+}
+
+.activites .subActivity {
+	background-color:${webleger.site.style.secondary.background.color.medium};
+}
+.activites .subActivity:first-child {
+	margin-bottom:2rem;
+}
+
+.activites .bienfait_yoga .blockIcon {
+	max-width:280px;
+	width:280px;
+	height:auto;
+	margin-bottom:5rem!important;
+}
+
+.planning .blockContent {
+	text-align: center;
+}
+
+.planning .blockContent .calendarFrame {
+	margin-top: 2rem;
+}
+
+.tarif .featured_label {
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+.tarif strong {
+	display: block;
+	font-weight: 800;
+	font-size: 5rem;
+	letter-spacing: 0.5rem;
+	line-height: 1;
+	font-family: ui-serif,Georgia,Cambria,Times New Roman,Times,serif;
+	margin-top: 2rem;
+}
+.tarif .featured strong {
+	color:${webleger.site.style.primary.background.color};
+}
+.tarif em {
+	display: block;
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+	margin-top: 0.5rem;
+}
+.tarif ul {
+	text-align:initial;
+}
+.tarif ul li {
+	display: flex;
+	align-items: flex-start;
+	gap: .5rem;
+	border-left:none;
+}
+.tarif .liStar {
+	margin-top: .125rem;
+	margin-right:1rem;
+	color:${webleger.site.style.primary.background.color};
+}
+
+.contact svg {
+	color:color:${webleger.site.style.primary.background.color};
+}
+.contact h3 {
+	font-size:1.25rem;
+	margin:0;
+}
+.contact .block {
+	width:98% !important;
+}
+
+ .contact .block .groupe_content {
+ 	width:100%;
+}
+.contact label:first-child {
+	margin-top:0rem;
+}
+.contact label {
+	text-transform:uppercase;
+	margin-top:1rem;
+	color:${webleger.site.style.titles.color};
+}
+.contact input[type=submit] {
+	margin-top:1rem;
+	width:100%;
+	font-size:1.75rem;
+}
+
 
 .glossay_term {
 	color:${webleger.site.style.primary.background.color};
@@ -73,7 +297,17 @@
 	.preHeader .blockContent {
 		margin-left: 25px;
 	}
-	.bievenue .blockIcon_wraper img {
+	.bievenue {
 		width:80%;
 	}
+	.activites .subActivity {
+		padding:1.5rem;
+	}
+	.activites .bienfait_yoga .blockIcon {
+		max-width:480px;
+		width:480px;
+		height:auto;
+		margin-right:10rem!important;
+	}
+	
 }
