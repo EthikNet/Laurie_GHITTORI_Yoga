@@ -280,6 +280,15 @@ em {
 	font-size:1.75rem;
 }
 
+.mon_parcours p:has(img) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+.mon_parcours img:first-child {
+	border-radius: 99999px;
+}
 
 .glossay_term {
 	color:${webleger.site.style.primary.background.color};
@@ -314,6 +323,10 @@ em {
 		width:480px;
 		height:auto;
 		margin-right:10rem!important;
+	}
+	
+	.mon_parcours p:has(img) {
+		flex-direction: row;
 	}
 	
 }

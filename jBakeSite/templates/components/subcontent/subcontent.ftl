@@ -460,6 +460,9 @@ param : content : content to search for include content
 							<span class="featured_label">${featauredText}</span>
 						</#if>
 						<div class="${className}_body">
+							<#if (altSubContent.contentImage)??>
+								<@common.addImageIcon altSubContent.contentImage className+"_image" altSubContent.title/>
+							</#if>
 							<#if (altSubContent.exerpt??)>
 								<div class="${className}_exerpt">
 									${altSubContent.exerpt!""}
