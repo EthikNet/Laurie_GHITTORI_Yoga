@@ -173,6 +173,59 @@
 	background-color: ${webleger.site.style.primary.disabled.background.color};
 }
 
+/** Histo (blocAlternate) **/
+.hsitoAlternate_list {
+	position:relative;
+}
+
+.hsitoAlternate_list .middleLine {
+	position:absolute;
+	left: 0;
+	top:0;
+	bottom:0;
+	width:1px;
+	--tw-translate-x: -50%;
+	transform: translate(-50%,0) rotate(0) skew(0) skewY(0) scaleX(1) scaleY(1);
+	background-color:${webleger.site.style.primary.background.color.medium};
+}
+.hsitoAlternate {
+	position:relative;
+	display:flex;
+	align-items: flex-start;
+	flex-direction:row;
+}
+.hsitoAlternate .lineMarker {
+	position:absolute;
+	left:0;
+	border-radius: 9999px;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-top: 2rem;
+	z-index: 10;
+	--tw-translate-x: -50%;
+	transform: translate(-50%,0) rotate(0) skew(0) skewY(0) scaleX(1) scaleY(1);
+	background-color:${webleger.site.style.primary.background.color};
+}
+
+.hsitoAlternate_block {
+	display:flex;
+	width:100%;
+}
+
+.hsitoAlternate_left .hsitoAlternate_block{
+	text-align: left;
+	padding-left: 3rem;
+}
+
+.hsitoAlternate_right .hsitoAlternate_block{
+	text-align: left;
+	padding-left: 3rem;
+}
+
+.hsitoAlternate_title{
+	color:${webleger.site.style.primary.background.color};
+}
+
 /* card inside a primary design (use default) */
 .primary .card {
 	background-color:${webleger.site.style.background.color};
@@ -223,5 +276,23 @@
 	}
 	.card_image {
 		height: 210px;
+	}
+	
+	.hsitoAlternate_list .middleLine {
+		left:50%;
+	}
+	.hsitoAlternate .lineMarker{
+		left:50%;
+	}
+	.hsitoAlternate_left .hsitoAlternate_block{
+		text-align: right;
+		margin-left:0;
+		padding-right: 3rem;
+	}
+	.hsitoAlternate_block {
+		width:50%;
+	}
+	.hsitoAlternate_right{
+		flex-direction: row-reverse;
 	}
 }

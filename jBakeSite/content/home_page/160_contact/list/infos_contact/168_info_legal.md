@@ -3,13 +3,12 @@ date=2026-04-08
 type=org_openCiLife_block
 category=infos_contact
 subTemplate=noImageSubTemplate
-dsiplayTitle=false
+displayTitle=false
+specificClass=contact_infos_legales
 status=published
-order=822
+order=168
 ~~~~~~
 ------------------------------------
-Entreprise Individuelle
-
+*Entreprise Individuelle
 Code NAF : 85.51Z — Enseignement de disciplines sportives
-
-SIRET : En cours · N° TVA : En cours
+SIRET : En cours · N° TVA : En cours*

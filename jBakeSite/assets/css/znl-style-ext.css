@@ -45,7 +45,7 @@
 	height:auto;
 }
 
-.card content_type_link .card_image_wraper {
+.card.content_type_link .card_image_wraper {
 	text-align:center;
 }
 
@@ -259,6 +259,12 @@ em {
 
  .contact .block .groupe_content {
  	width:100%;
+}
+.contact .contact_infos_legales hr {
+	border-color:${webleger.site.style.color};
+}
+.contact .contact_infos_legales em {
+	color:${webleger.site.style.color};
 }
 .contact label:first-child {
 	margin-top:0rem;
