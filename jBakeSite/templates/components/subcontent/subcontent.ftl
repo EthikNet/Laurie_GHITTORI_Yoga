@@ -157,6 +157,10 @@ param : content : content to search for include content
 					</#switch>
 				</#if>
 				
+				<#if (altSubContent.specificClass)??>
+					<#local specificContentClass += " " + altSubContent.specificClass>
+				</#if>
+				
 				<#if (altSubContent.featured)??>
 					<#local specificContentClass = specificContentClass + " featured">
 					<#if (altSubContent.featured.text)??>

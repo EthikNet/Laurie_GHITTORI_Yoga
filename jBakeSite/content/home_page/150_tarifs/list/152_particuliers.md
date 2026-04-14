@@ -6,6 +6,7 @@ tags=
 action={"disposition":"center", "data":[{"type":"button", "label":"Réserver", "specificClass":"btn-primary", "operation":{"type":"anchor", "to":"contact"}}]}
 hooks={"data":[{"position":"endItemSubContent", "action":"action.build", "renderOnce":true}]}
 featured={"text":"Populaire"}
+specificClass=degrade-circle-top-right-small
 status=published
 order=152
 ~~~~~~

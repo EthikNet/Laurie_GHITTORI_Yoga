@@ -3,6 +3,10 @@
 	border-radius:15px;
 }
 
+.breadcrumb {
+	background-color:${webleger.site.style.primary.highlight.color.light};
+	padding:0;
+}
 .breadcrumb li a {
     border-radius:15px;
 }
@@ -85,6 +89,11 @@ em {
 	background: radial-gradient(at 100% 20%, ${webleger.site.style.primary.background.color} 10px, 
 				${webleger.site.style.primary.background.color.medium} 25%, 
 				${webleger.site.style.primary.background.color.light} 60%);
+}
+.degrade-circle-top-right-small {
+	background: radial-gradient(at 100% 0%, ${webleger.site.style.primary.background.color} 10px, 
+				${webleger.site.style.primary.background.color.medium} 15%, 
+				${webleger.site.style.primary.background.color.light} 50%);
 }
 
 .imgBeforeTitle .card_image {
