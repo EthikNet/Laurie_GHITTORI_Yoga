@@ -295,6 +295,49 @@ em {
 	font-size:1.75rem;
 }
 
+.derniers_articles p {
+	text-align:center;
+}
+
+.derniers_articles .subContent_tags {
+	display: flex;
+    gap: 2rem;
+	padding-right: 1rem;
+	justify-content: flex-end;
+}
+
+.derniers_articles .subContent_tags  li {
+	border: 1px solid hsl(39, 40%, 55%, 0.6);
+	padding: 0.5rem 1rem;
+	border-radius: 15px;
+	margin:0;
+}
+
+.derniers_articles h3 {
+	margin-top:0;
+}
+
+.derniers_articles .blogCard_content {
+	display:flex;
+	gap:2rem;
+	min-height: 150px;
+}
+
+.derniers_articles .blogCard_image_holder {
+	width: 28%;
+	height: auto;
+}
+.derniers_articles .blogCard_image_wraper {
+	width: 100%;
+}
+.derniers_articles .blogCard_image_wraper img {
+	width: 100%;
+}
+.derniers_articles .blogCard_exerpt {
+	width: 70%;
+	margin: auto 0;
+}
+
 .mon_parcours p:has(img) {
 	display: flex;
 	flex-direction: column;

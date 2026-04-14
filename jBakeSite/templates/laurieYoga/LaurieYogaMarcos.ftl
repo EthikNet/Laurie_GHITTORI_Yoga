@@ -51,16 +51,20 @@
 				</#if>
 				<a href="${common.buildRootPathAwareURL(altSubContent.uri)}" class="blog_link">
 				<h3>${altSubContent.title}</h3>
-				<#if (altSubContent.contentImage??)>
-					<#if (altSubContent.contentImage)??>
-						<@common.addImageIcon altSubContent.contentImage "blogCard_image" altSubContent.title/>
-					</#if>
-				</#if>
-				<#if (altSubContent.exerpt??)>
-					<div class="blogCard_exerpt">
-						${altSubContent.exerpt!""}
+					<div class="blogCard_content">
+						<div class="blogCard_image_holder">
+						<#if (altSubContent.contentImage??)>
+							<#if (altSubContent.contentImage)??>
+								<@common.addImageIcon altSubContent.contentImage "blogCard_image" altSubContent.title/>
+							</#if>
+						</#if>
+						</div>
+						<#if (altSubContent.exerpt??)>
+							<div class="blogCard_exerpt">
+								${altSubContent.exerpt!""}
+							</div>
+						</#if>
 					</div>
-				</#if>
 				</a>
 				<#if hookHelper??>
 					<@hookHelper.hook "endItemSubContent" altSubContent/>

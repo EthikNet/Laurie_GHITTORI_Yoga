@@ -115,7 +115,7 @@
 	<#if (allCgvContents?size>0)>
 		<ul class="${classes}">
 			<#list allCgvContents?sort_by("date") as cgvContent>
-				<li><a href=${cgvContent.uri}>${cgvContent.title} (${cgvContent.date?date})</a></li>
+				<li><a href=${common.buildRootPathAwareURL(cgvContent.uri)}>${cgvContent.title} (${cgvContent.date?date})</a></li>
 			</#list>
 		</ul>
 	</#if>
