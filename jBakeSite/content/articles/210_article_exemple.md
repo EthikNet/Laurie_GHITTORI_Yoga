@@ -1,8 +1,8 @@
 title=Article d'exemple
-date=2026-04-08
+date=2026-04-07
 type=org_openCiLife_post
 category=main
-tags=exmple, un autre tag
+tags=Bien-être
 status=published
 exerpt=un petit résumé de l'article d'exemple
 contentImage=images/common/logo_left.png

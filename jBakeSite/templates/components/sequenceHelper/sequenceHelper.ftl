@@ -15,10 +15,6 @@ return : true in a least one lookupItems is found in aSequence
 <#function seq_containsOne aSequence lookupItems = "" autoSplitChar = ",">
 	<#assign found=false>
 	
-	<#if logHelper??>
-		${logHelper.stackDebugMessage("seq_containsOne check if " + aSequence + " contains : " + lookupItems)}
-	</#if>
-	
 	<#assign transformedASequence=aSequence>
 	<#assign transformedLookupItems=lookupItems>
 	
@@ -49,6 +45,14 @@ return : true in a least one lookupItems is found in aSequence
 		<#else> <#-- both params are NOT lists -->
 			<#assign found = transformedLookupItems == transformedASequence>
 		</#if>>
+	</#if>
+	
+	<#if logHelper??>
+		<#if found>
+			${logHelper.stackDebugMessage("seq_containsOne (data) " + aSequence + "  contains at least one (filter) : " + lookupItems)}
+		<#else>
+			${logHelper.stackDebugMessage("seq_containsOne (data) " + aSequence + " NOT contains any (filter) : " + lookupItems)}
+		</#if>
 	</#if>
 	
 	<#return found>

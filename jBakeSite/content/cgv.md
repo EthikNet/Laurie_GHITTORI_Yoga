@@ -1,8 +1,8 @@
 title=Conditions générales de vente
-date=2026-01-01
+date=2026-04-11
 type=org_openCiLife_post
 category=cgv
-status=draft
+status=published
 exerpt=Conditions générales de vente (prestations de service) entre professionnels
 enableGlossary=false
 order=9990

@@ -80,6 +80,25 @@ em {
 	border: 1px solid ${webleger.site.style.primary.background.color.medium};
 }
 
+
+.degrade-circle-top-right {
+	background: radial-gradient(at 100% 20%, ${webleger.site.style.primary.background.color} 10px, 
+				${webleger.site.style.primary.background.color.medium} 25%, 
+				${webleger.site.style.primary.background.color.light} 60%);
+}
+
+.imgBeforeTitle .card_image {
+	float:left;
+	padding: 8px;
+	height: 40px;
+	width: 40px;
+	margin-top: 24px;
+	margin-right: 25px;
+	border-radius:100%;
+	background-color:#f3eee6;
+	color:${webleger.site.style.primary.background.color};
+}
+
 .title {
 	width:100%;
 	color:${webleger.site.style.background.color};
@@ -117,16 +136,8 @@ em {
 	height:auto;
 }
 
-.imgBeforeTitle .card_image {
-	float:left;
-	padding: 8px;
-	height: 40px;
-	width: 40px;
-	margin-top: 24px;
-	margin-right: 25px;
-	border-radius:100%;
-	background-color:#f3eee6;
-	color:${webleger.site.style.primary.background.color};
+.desc_ent .card_content {
+	margin-top:2rem;
 }
 
 .activites .blockContent > p:first-child:has(em), .planning  .blockContent > p:first-child:has(em), .tarifs  .blockContent > p:first-child:has(em), 
@@ -184,6 +195,10 @@ em {
 	margin-bottom: 2rem;
 	background-color:white;
 	border: 1px solid ${webleger.site.style.hr.color};
+	background: radial-gradient(ellipse 100% 100px at 50% 0px, 
+				${webleger.site.style.primary.background.color} 10px, 
+				${webleger.site.style.primary.background.color.medium} 100px, 
+				${webleger.site.style.primary.background.color.light} 50%);
 }
 
 .activites .subActivity {
@@ -293,16 +308,32 @@ em {
 .glossay_term {
 	color:${webleger.site.style.primary.background.color};
 }
+
+
 #footer_blocks .block {
 	text-align:left;
 }
 #footer_blocks .blockBody {
 	flex-direction: row;
 }
+#footer_blocks .quick_nav  .blockBody {
+	width:100%;
+}
+#footer_blocks .quick_nav .blockBody ul {
+	display:flex;
+}
+
 
 @media screen and (min-width: 640px) {
 	#footer_blocks .block {
-		width:31%;
+		width:25%;
+	}
+	#footer_blocks .quick_nav {
+		display:flex;
+		width:48%;
+	}
+	#footer_blocks .quick_nav ul li {
+		display:flex;
 	}
 	#preHeader_blocks {
 		flex-direction: row-reverse;
@@ -317,6 +348,12 @@ em {
 	}
 	.activites .subActivity {
 		padding:1.5rem;
+	}
+	.activites .mainActivity {
+		background: radial-gradient(ellipse 100% 100% at 50% 0px, 
+				${webleger.site.style.primary.background.color} 10px, 
+				${webleger.site.style.primary.background.color.medium} 100px, 
+				${webleger.site.style.primary.background.color.light} 50%);
 	}
 	.activites .bienfait_yoga .blockIcon {
 		max-width:480px;

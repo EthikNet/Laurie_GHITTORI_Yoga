@@ -1,4 +1,4 @@
-title=Marque
+title=copyright
 date=2026-04-10
 type=org_openCiLife_block
 subTemplate=imageLeftSubTemplate
@@ -6,8 +6,7 @@ category=footer
 tags=
 status=published
 displayTitle=false
-contentImage=images/common/logo_left.png
 enableGlossary=false
-order=900
+order=904
 ~~~~~~
-Hakini Yoga
+© 2026 Hakini Yoga

@@ -6,7 +6,7 @@ tags=
 displayTitle=false
 includeContent={"type":"org_openCiLife_block", "category":"parlons-en", "specificClass":"contact twoPerRow", "display":{"type":"card", "content":"visible", "specificClass":"onePerRow", "displayTitle":false}}
 status=published
-anchorId=Contact
+anchorId=contact
 specificClass=parlons-en
 order=160
 ~~~~~~

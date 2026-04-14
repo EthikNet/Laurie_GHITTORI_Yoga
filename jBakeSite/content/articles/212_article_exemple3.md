@@ -1,14 +1,14 @@
-title=Article deuxième d'exemple
-date=2026-04-08
+title=Article troisème d'exemple
+date=2026-04-13
 type=org_openCiLife_post
 category=main
-tags=Sport, un autre tag
+tags=exmple, un autre tag
 status=published
-exerpt=un autre petit résumé de l'article d'exemple
+exerpt=un autre petit résumé de l'article d'exemple mais pas si petit que cela, et même plutot franchement long.
 contentImage=images/contact.svg
-order=211
+order=212
 ~~~~~~
-##un Titre (2)
+##un Titre (3)
 Un paragraphe avec du **gras** et de l'*italic* et un texte. Voici un lien vers [google](https://www.google.com).
 
 Une petite image juste en dessous : 

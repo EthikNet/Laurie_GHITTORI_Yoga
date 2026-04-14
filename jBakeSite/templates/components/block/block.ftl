@@ -55,7 +55,7 @@
 		<#local blocks = blocks?filter(ct -> langHelper.isCorectLang(ct, langHelper.getLang(content)))>
 	</#if>
 	<#if logHelper??>
-		<@logHelper.debug "Blocks : Liste of blocks for " + categoryFilter + " (published, filtered by lang if resquired) with " + blocks?size + " blocks"/>
+		${logHelper.stackDebugMessage("Blocks.getBlocks : category :" + categoryFilter + " (published, filtered by lang if resquired) used with " + blocks?size + " blocks")}
 	</#if>
 	<#return blocks>
 </#function>
@@ -66,17 +66,16 @@
 <#macro buildWithCategory theContent categoryFilter orderBy="order", blockConfig={}>
 	<@generateBlockWrap theContent, blockConfig>
 		<#list getBlocks(theContent, categoryFilter, order, blockConfig) as block>
-			<#local blockCategory = blockConfig.category!"__empty_categ__">
-			<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
-		 		<#local alteredBlock = commonInc.propagateContentChain(block) />
-				<#local subTemplateName = "defaultBlockSubTemplate">
-				<#if (block.subTemplate??)>
-					<#local subTemplateName=block.subTemplate>
-				</#if>
-				
-				<#local subTemplateInterpretation = "<@${subTemplateName} alteredBlock />"?interpret>
-				<@subTemplateInterpretation/>
+	 		<#local alteredBlock = commonInc.propagateContentChain(block) />
+			<#local subTemplateName = "defaultBlockSubTemplate">
+			<#if (block.subTemplate??)>
+				<#local subTemplateName=block.subTemplate>
 			</#if>
+			<#if logHelper??>
+				${logHelper.stackDebugMessage("Blocks.buildWithCategory : generating a block with template : " + subTemplateName + ", with content uri : " + alteredBlock.uri!"NO_URI")}
+			</#if>
+			<#local subTemplateInterpretation = "<@${subTemplateName} alteredBlock />"?interpret>
+			<@subTemplateInterpretation/>
 	  	</#list>
   	</@generateBlockWrap>
   	${common.clearGeneratedAnchorId()}
@@ -102,6 +101,10 @@
 			${logHelper.stackDebugMessage("block.generateBlockWrap : wraping is enabled")}
 		</#if>
 		<#local wrapEnable = true>
+	<#else>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("block.generateBlockWrap : wraping is NOT enabled")}
+		</#if>
 	</#if>
 	
 	<#if (blockConfig)?? && (blockConfig.wrap)?? && (blockConfig.wrap.specificClass)?? && blockConfig.wrap.specificClass?has_content>

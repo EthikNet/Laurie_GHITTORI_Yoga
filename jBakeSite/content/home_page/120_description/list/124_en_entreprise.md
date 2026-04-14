@@ -7,7 +7,7 @@ contentImage=<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" view
 status=published
 order=124
 ~~~~~~
-Pratiquer à la campagne, c'est profiter d'un cadre authentique pour débrancher du quotidien. Que vous habitiez le village ou les environs, je vous accueille avec bienveillance, quel que soit votre niveau.
+Parce que nos journées professionnelles sont souvent intenses, je déplace ma pratique au sein des entreprises. Le Hatha Yoga et le Yoga du Cachemire sont des outils puissants pour :
 
 - Prévenir les troubles musculosquelettiques (maux de dos, tensions cervicales).
 - Réduire le stress et améliorer la concentration des équipes.

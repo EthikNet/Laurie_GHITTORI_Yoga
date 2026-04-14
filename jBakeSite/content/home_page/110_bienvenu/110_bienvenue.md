@@ -5,7 +5,7 @@ subTemplate=imageLeftSubTemplate
 category=homepage
 tags=
 status=published
-specificClass=mainBlock bievenue
+specificClass=mainBlock bievenue degrade-circle-top-right
 contentImage=images/Laurie_visage_small.jpg
 order=110
 ~~~~~~
