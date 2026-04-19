@@ -1,7 +1,5 @@
 <#include "header.ftl">
 	
-	<#include "menu.ftl">
-	
 	<#if hookHelper?? && hookHelper.hasContributors("beforePageHeader")>
 		<div id="beforePageHeader" class="${webleger.site.beforePageHeader.class}">
 		<@hookHelper.hook "beforePageHeader" content/>

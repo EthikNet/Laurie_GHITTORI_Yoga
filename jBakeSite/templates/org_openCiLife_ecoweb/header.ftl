@@ -65,6 +65,7 @@
   <body class="${pageSpecificClass}">
   <div id="up"></div>
     <div id="wrap">
+    	<@ecoWeb.imageHero>
 	    <#if (alteredContent.displayPreHeader!"true") != "false">
 	    	<div id="preHeader" class="container preHeader ${webleger.site.preheader.class}">
 	    		<#if block??>
@@ -89,3 +90,23 @@
 			</div>
 		</div>
 	</#if>
+	
+	<div id="beforeMainContent" class="container ${webleger.site.beforeMainContent.class}">
+	<#if hookHelper??>
+		<@hookHelper.hook "beforeMainContent" content/>
+	</#if>
+    </div>
+    </@ecoWeb.imageHero>
+    
+    <#assign mainContainerClass = "container" />
+    <#if content?? && content.specificClass??>
+    	<#assign mainContainerClass = mainContainerClass + " @webleger.site.mainContent.class@ " + content.specificClass>
+    </#if>
+    <div id="mainContent" class="${mainContainerClass}" role="main">
+    <#if content?? && content?has_content>
+    	<#if hookHelper?? && hookHelper.hasContributors("topContentContainer")>
+    		<div id="topContentContainer" class="${webleger.site.topContentContainer.class}">
+			<@hookHelper.hook "topContentContainer" content/>
+			</div>
+		</#if>
+    </#if>

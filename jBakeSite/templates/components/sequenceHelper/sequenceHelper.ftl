@@ -24,7 +24,7 @@ return : true in a least one lookupItems is found in aSequence
 		</#if>
 		
 		<#if (lookupItems?is_string && lookupItems?contains(autoSplitChar))>
-			<#assign transformedLookupItems=lookupItems?split(r"\s*,\s*", "r")>
+			<#assign transformedLookupItems=splitStringToSequence(lookupItems)>
 		</#if>
 	
 	</#if>
@@ -49,9 +49,9 @@ return : true in a least one lookupItems is found in aSequence
 	
 	<#if logHelper??>
 		<#if found>
-			${logHelper.stackDebugMessage("seq_containsOne (data) " + aSequence + "  contains at least one (filter) : " + lookupItems)}
+			${logHelper.stackDebugMessage("seq_containsOne (data) " + common.toString(aSequence) + "  contains at least one (filter) : " + common.toString(lookupItems))}
 		<#else>
-			${logHelper.stackDebugMessage("seq_containsOne (data) " + aSequence + " NOT contains any (filter) : " + lookupItems)}
+			${logHelper.stackDebugMessage("seq_containsOne (data) " + common.toString(aSequence) + " NOT contains any (filter) : " + common.toString(lookupItems))}
 		</#if>
 	</#if>
 	

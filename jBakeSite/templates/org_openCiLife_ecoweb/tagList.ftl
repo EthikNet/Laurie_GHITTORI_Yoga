@@ -1,6 +1,4 @@
 <#include "header.ftl">
-
-	<#include "menu.ftl">
 	<h1>Tags</h1>
 	
 	<ul>

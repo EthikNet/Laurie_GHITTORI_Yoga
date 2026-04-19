@@ -1,12 +1,16 @@
 /** Custom general style **/
+
+.navbar {
+	background-color:${webleger.site.style.primary.background.color};
+}
 .navbar-nav > li > a, .dropdown-menu > li > a{
 	border-radius:15px;
 }
 
 .breadcrumb {
-	background-color:${webleger.site.style.primary.highlight.color.light};
 	padding:0;
 }
+
 .breadcrumb li a {
     border-radius:15px;
 }
@@ -30,6 +34,10 @@
 }
 .primary .impact_img svg {
 	background-color:${webleger.site.style.primary.highlight.color};
+}
+
+.imageHeroSection {
+	min-height:650px;
 }
 
 #preHeader_blocks {
@@ -289,6 +297,10 @@ em {
 }
 .contact .contact_infos_legales em {
 	color:${webleger.site.style.color};
+}
+
+.contact .card {
+	padding: 1rem;
 }
 .contact label:first-child {
 	margin-top:0rem;

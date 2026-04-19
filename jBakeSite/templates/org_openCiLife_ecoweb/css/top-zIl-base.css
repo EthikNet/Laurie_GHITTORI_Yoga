@@ -8,6 +8,10 @@
   /* Negative indent footer by it's height */
   margin: 0 auto;
 }
+.imageHeroSection {
+	display:flex;
+	flex-direction:column;
+}
 
 .navbar .container-fluid {
 	display:flex;

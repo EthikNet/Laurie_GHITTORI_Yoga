@@ -1,12 +1,10 @@
 title=Accueil
 date=2026-04-01
 type=org_openCiLife_block
-subTemplate=imageHeroSubTemplate
-category=homepage
+category=imageHero
 tags=
 status=published
 specificClass=title
-contentImage=images/Laurie_yoga_plage_small.jpg
 displayTitle=false
 enableGlossary=false
 anchorId=Accueil
