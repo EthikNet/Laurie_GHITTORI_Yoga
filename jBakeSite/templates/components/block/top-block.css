@@ -68,43 +68,11 @@
 	flex-direction:column;
 }
 
-.imageHeroSection {
-	overflow: hidden;
-	align-items: center;
-	min-height: 50vh;
-	display: flex;
-	position: relative;
-}
-
-.imageHeroContainer {
-	z-index: -1;
-}
-.imageHeroContainer, .imageHeroMask {
-	position: absolute;
-	top: 4px;
-	right: 0;
-	bottom: 0;
-	left: 4px;
-}
-
-.imageHeroMask {
-	background-color: hsl(0,0%,10%,.5);
-}
-
-.imageHeroContainer img {
-	object-fit: cover;
-	width:100%;
-	height:100%;
-}
-
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (min-width: 640px) {
 	.blocks {
 		flex-direction: row;
 		justify-content:space-evenly;
-	}
-	.block_wraping {
-		flex-direction: row;
 	}
 	.blockBody {
 		flex-direction: row;
@@ -119,10 +87,6 @@
 	.imageLeftTitleAndContentSubTemplate {
 		flex-direction:row;
 	}
-	.imageHeroSection {
-		min-height: 80vh;
-	}
-	
 	.onePerRow .card, .onePerRow .block{
 		width:98%
 	}
@@ -137,5 +101,8 @@
 	}
 	.fivePerRow .card, .fivePerRow .block{
 		width:19%
+	}
+	.block_wraping {
+		flex-direction: row;
 	}
 }
