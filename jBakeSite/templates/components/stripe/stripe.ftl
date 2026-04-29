@@ -44,7 +44,7 @@
 	
 		<stripe-buy-button
 		  buy-button-id="${productId}"
-		  publishable-key="${webleger.component.glossary.apiKey}">
+		  publishable-key="${webleger.component.stripe.apiKey}">
 		</stripe-buy-button>
 	<#else>
 		<#if logHelper??>
