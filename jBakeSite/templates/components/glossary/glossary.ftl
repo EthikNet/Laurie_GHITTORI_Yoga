@@ -2,6 +2,8 @@
 	<#return {"componnentVersion":2, "name":"glossary", "description":"Add definition to some word", "version":"0.0.1", "recommandedNamespace":"glossary", "contentChainBefore":true, "require":[{"value":"propertiesHelper", "type":"lib"}, {"value":"component.glossary.terms", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
 </#function>
 
+<#global pageUseComponnent=false />
+
 <#function init>
 	<#return "" />
 </#function>
@@ -19,12 +21,27 @@
 </#function>
 
 <#function addFooterScripts()>
+	<#if pageUseComponnent>
+		<#if ressourcesHelper??>
+			${ressourcesHelper.addFooterRessource({"tagType":"script", "src":"templates/components/glossary/copyToAssets/noAgregation/glossary.js", "order":40})}
+		<#else>
+			<#if logHelper??>
+				${logHelper.stackDebugMessage("glossary.addFooterScripts : ERROR cannot add footer script, missing 'ressourcesHelper' component")}
+			</#if>
+		</#if>
+		<#else>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("glossary.addFooterScripts : glossary component are not use in this page, no script added")}
+		</#if>
+	</#if>
 	<#return "" />
 </#function>
 
 <#global securedGlossaryData = []>
 
 <#function hightlightGlossaryWords theContent>
+	
+	
 	<#assign alteredContent = theContent>
 	
 	<#if !((theContent.enableGlossary)?? && theContent.enableGlossary=="false")>
@@ -54,6 +71,13 @@
 				
 				<#list words as aWord>
 					<#local enhancedTerm = "(\\b"+aWord+"\\b)">
+					<#if (newContent?matches(enhancedTerm)?size>0)>
+					<#if logHelper??>
+							${logHelper.stackDebugMessage("glossary.hightlightGlossaryWords : adding glossary component. page already contain glossary component ? " + pageUseComponnent?string("yes","no"))}
+						</#if>
+						<#global pageUseComponnent=true />
+					</#if>
+					
 					<#if logHelper??>
 				 		${logHelper.stackDebugMessage("glossary.hightlightGlossaryWords  : replacing term : " + element.term + " (adapted as : " + enhancedTerm + ")")}
 				 	</#if>
@@ -67,6 +91,7 @@
 			<#-- <#if logHelper??>
 		 		${logHelper.stackDebugMessage("glossary.hightlightGlossaryWords : RETURN altered body : " + alteredContent.body)}
 		 	</#if> -->
+		 	
 		</#if>
 	</#if>
 	<#return alteredContent />

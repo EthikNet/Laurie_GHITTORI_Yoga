@@ -40,7 +40,7 @@ $('#basicModal').on('show.bs.modal', function (event) {
     modal.find('.modal-title').text(bodyTitle);
     modal.find('.modal-body-content').replaceWith('<div class="modal-body-content">' + bodyContent + '</div>');
     if (bodyImage.exists()){
-    	modal.find('.modal-image').append('<img src="' + bodyImage.attr('src') + '" class="modal-image" />');
+    	modal.find('.modal-image').append('<img src="' + bodyImage.attr('src') + '" class="modal-image">');
     }
     var modalMoreInfoLink =  modal.find('#modalMoreInfoLink');
     var hideLinkClass = "moreInfoHidden";

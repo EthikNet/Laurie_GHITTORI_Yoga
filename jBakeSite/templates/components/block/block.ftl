@@ -275,7 +275,7 @@
 <#macro imageHeroSubTemplate block>
 	<section class="imageHeroSection">
 	<div class="imageHeroContainer">
-		<img src="${common.buildRootPathAwareURL(block.contentImage)}"/>
+		<img src="${common.buildRootPathAwareURL(block.contentImage)}">
 		<div class="imageHeroMask"></div>
 	</div>
 	<@noImageSubTemplate block "position:relative"/>

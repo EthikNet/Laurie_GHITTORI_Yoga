@@ -110,13 +110,13 @@
 	<#if (config["site_debug_enabled"])??>
 		<#if debub.isEnabled()>
 			<div class="debug">
-			debug du menu<br/>
+			debug du menu<br>
 			<#list menuItems as parentName, menuItems>
-				- ${parentName}<br/>
+				- ${parentName}<br>
 				<#list menuItems as subMenu >
 					--- ${subMenu.title}
 				</#list>
-				<br/>
+				<br>
 			</#list>
 			</div>
 		</#if>

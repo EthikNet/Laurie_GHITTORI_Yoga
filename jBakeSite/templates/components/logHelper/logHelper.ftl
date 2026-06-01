@@ -75,7 +75,7 @@ param : message : the message to display (a String)
 	<#if !strMessage?is_string>
 		<#return "">
 	</#if>
-	<#assign stackedDebugMessage = stackedDebugMessage + "<br/>" + strMessage>
+	<#assign stackedDebugMessage = stackedDebugMessage + "<br>" + strMessage>
 	<#return ""/>
 </#function>
 

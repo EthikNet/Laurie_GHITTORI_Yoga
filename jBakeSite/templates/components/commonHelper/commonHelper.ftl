@@ -88,7 +88,7 @@ return : text with URL transformed
 	<#return isSvg>
 </#function>
 
-<#macro addImageIcon image cssClass="" alternativeText="" wrapTo="div class=\""+cssClass+"_wraper\"">
+<#macro addImageIcon image cssClass="" alternativeText="" wrapTo="span class=\""+cssClass+"_wraper\"">
 	<#if (image)??>
 		<#if common.isSvg(image)>
 			<@wrap wrapTo>
@@ -98,7 +98,7 @@ return : text with URL transformed
 			</@wrap>
 		<#else>
 			<@wrap wrapTo>
-				<img src="${common.buildRootPathAwareURL(image)}"<#if cssClass?has_content> class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>/>
+				<img src="${common.buildRootPathAwareURL(image)}"<#if cssClass?has_content> class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>>
 			</@wrap>
 		</#if>
 	</#if>
@@ -106,7 +106,11 @@ return : text with URL transformed
 
 <#macro wrap wrapTo="">
 	<#if (wrapTo)?? && wrapTo?has_content>
-		<${wrapTo}><#nested></${wrapTo!keep_before(" ")}>
+		<#local endTag = wrapTo>
+		<#if (endTag?contains(" "))>
+			<#local endTag = endTag?keep_before(" ")>
+		</#if>
+		<${wrapTo}><#nested></${endTag}>
 	<#else>
 		<#nested>
 	</#if>
@@ -203,7 +207,15 @@ param : theObject : object to transform in String
 <#function getCanonicalUrl>
 	<#local canonicalUri="" />
 	<#if (content.uri)??>
-		<#local canonicalUri="${webleger.build.host.prefered.protocol}://${webleger.build.host}/${content.uri}" />
+		<#local canonicalUri="${webleger.build.host}/${content.uri}" />
 	</#if>
 	<#return canonicalUri>
+</#function>
+
+<#function isTodayOrAfter theContent>
+	<#local returnVal = false>
+	<#if (theContent.date)?? && (.now?date <= theContent.date?date)>
+		<#local returnVal = true>
+	</#if>
+	<#return returnVal>
 </#function>
