@@ -36,6 +36,10 @@
 	background-color:${webleger.site.style.primary.highlight.color};
 }
 
+.popover {
+	background-color: ${webleger.site.style.secondary.background.color} !important;
+}
+
 .imageHeroSection {
 	min-height:650px;
 }
